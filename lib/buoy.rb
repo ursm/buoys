@@ -1,0 +1,2 @@
+module Buoy
+end
