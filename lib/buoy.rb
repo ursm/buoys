@@ -1,4 +1,5 @@
 require 'buoy/version'
+require 'buoy/loader'
 
 module Buoy
   class << self
