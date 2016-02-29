@@ -1,7 +1,7 @@
-require 'buoy/version'
-require 'buoy/loader'
+require 'buoys/version'
+require 'buoys/loader'
 
-module Buoy
+module Buoys
   class << self
     def buoy_file_paths
       @buoy_file_paths ||= [

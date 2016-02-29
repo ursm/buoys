@@ -1,4 +1,4 @@
-module Buoy
+module Buoys
   class Loader
     class << self
       #
@@ -27,7 +27,7 @@ module Buoy
       end
 
       def buoy_files
-        Dir[*Buoy.buoy_file_paths]
+        Dir[*Buoys.buoy_file_paths]
       end
     end
   end
