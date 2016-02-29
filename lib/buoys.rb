@@ -1,5 +1,6 @@
 require 'buoys/version'
 require 'buoys/loader'
+require 'buoys/buoy.rb'
 
 module Buoys
   class << self
