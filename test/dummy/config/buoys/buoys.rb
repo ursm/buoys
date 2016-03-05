@@ -1,3 +1,3 @@
 buoy :account do
-  link 'account'
+  link :account, 'http://example.com/account'
 end

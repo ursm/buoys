@@ -20,4 +20,11 @@ class BuoysBuoyTest < ActiveSupport::TestCase
     assert_equal links[0].url,  'http://example.com/help'
     assert_equal links[1].url,  'http://example.com/help/usage'
   end
+
+  test 'can use :symbol as link name' do
+    links = Buoys::Buoy.new(@view_context, :account).links
+
+    assert_equal links[0].text, 'Account'
+    assert_equal links[0].url,  'http://example.com/account'
+  end
 end

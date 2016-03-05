@@ -18,9 +18,17 @@ module Buoys
       instance_exec *args, &block
     end
 
-    def link(text, *args)
+    def link(key, *args)
       path = args.shift
       url = path ? context.url_for(path) : path
+
+      text =
+        case key
+        when String
+          key
+        when Symbol
+          I18n.t(key, scope: 'buoys.breadcrumbs')
+        end
 
       links << Buoys::Link.new(text, url, args)
     end
