@@ -8,6 +8,7 @@ module Buoys
     end
 
     def mark_as_current!
+      options.deep_merge!(class: 'current')
       @current = true
     end
 
