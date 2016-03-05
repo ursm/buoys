@@ -8,7 +8,7 @@ module Buoys
     def render
       return [] unless @key
 
-      buoy = Buoys::Buoy.new(@context, @key, @args)
+      buoy = Buoys::Buoy.new(@context, @key, *@args)
       build_links(buoy)
     end
 
