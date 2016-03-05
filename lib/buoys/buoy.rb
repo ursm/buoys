@@ -30,7 +30,7 @@ module Buoys
           I18n.t(key, scope: 'buoys.breadcrumbs')
         end
 
-      links << Buoys::Link.new(text, url, args)
+      links << Buoys::Link.new(text, url, args.extract_options!)
     end
 
     def links
