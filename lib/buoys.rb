@@ -1,6 +1,9 @@
 require 'buoys/version'
 require 'buoys/loader'
-require 'buoys/buoy.rb'
+require 'buoys/link'
+require 'buoys/buoy'
+require 'buoys/renderer'
+require 'buoys/helper'
 
 module Buoys
   class << self
@@ -11,3 +14,4 @@ module Buoys
     end
   end
 end
+ActionView::Base.send :include, Buoys::Helper
