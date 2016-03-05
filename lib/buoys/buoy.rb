@@ -40,5 +40,9 @@ module Buoys
     def pre_buoy(key, *args)
       @previous = Buoys::Buoy.new(context, key, args)
     end
+
+    def method_missing(method, *args, &block)
+      context.send(method, *args, &block)
+    end
   end
 end
