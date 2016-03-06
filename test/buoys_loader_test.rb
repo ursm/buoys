@@ -10,6 +10,6 @@ class BuoysLoaderTest < ActiveSupport::TestCase
 
   test '.buoys' do
     Buoys::Loader.load_buoys_files
-    assert_equal Buoys::Loader.buoys.keys, %i(account about history help)
+    assert_equal Buoys::Loader.buoys.keys, %i(account books show_books about history help)
   end
 end

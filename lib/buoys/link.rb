@@ -1,6 +1,6 @@
 module Buoys
   class Link
-    attr_accessor :text, :options
+    attr_accessor :text, :options, :options_for_config
     attr_reader :current
 
     CONFIG = {
@@ -9,11 +9,12 @@ module Buoys
     }.with_indifferent_access
 
     def initialize(text, url, options)
-      @text, @_url, @options = text, url, options.with_indifferent_access
+      @options_for_config, @options = extract_options_and_config(options)
+      @text, @_url = text, url
     end
 
     def mark_as_current!
-      options.deep_merge!(class: config[:current_class])
+      options.merge!(class: config[:current_class])
       @current = true
     end
 
@@ -34,10 +35,16 @@ module Buoys
     private
 
     def config
-      override_options = (options.keys & CONFIG.keys).each_with_object({}) {|key, hash|
-        hash[key] = options[key]
+      CONFIG.merge(options_for_config)
+    end
+
+    def extract_options_and_config(_options)
+      options = _options.with_indifferent_access
+      config = (options.keys & CONFIG.keys).each_with_object({}) {|key, hash|
+        hash[key] = options.delete(key)
       }
-      CONFIG.merge(override_options)
+
+      [config, options]
     end
   end
 end

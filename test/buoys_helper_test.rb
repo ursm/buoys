@@ -19,10 +19,17 @@ class BuoysHelerTest < ActionView::TestCase
     assert_dom_equal %{<ul><li><a class="hover" href="/about"><span>about</span></a><span>&gt;</span></li><li><a class="current" href=""><span>history</span></a></li></ul>}, html
   end
 
-  test '.buoy (have 2 `link`s in one buoy block)' do
+  test '.buoy (has 2 `link`s in one buoy block)' do
     breadcrumb :help, true
     html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
 
     assert_dom_equal %{<ul><li><a class="hover" href="https://example.com/help"><span>help</span></a><span>&gt;</span></li><li><a class="current" href=""><span>usage</span></a></li></ul>}, html
+  end
+
+  test ".buoy (has configuration options in link's arguments)" do
+    breadcrumb :show_books, 1
+    html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
+
+    assert_dom_equal %{<ul><li><a class="hover" href="http://example.com/books"><span>Books</span></a><span>&gt;</span></li><li><a class="current" href="http://example.com/books/1"><span>show-1</span></a></li></ul>}, html
   end
 end
