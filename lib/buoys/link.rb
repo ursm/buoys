@@ -17,7 +17,7 @@ module Buoys
     end
 
     def url
-      current? ? '' : @_url
+      @_url || ''
     end
 
     def url=(str)
