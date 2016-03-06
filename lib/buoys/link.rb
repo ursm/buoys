@@ -22,6 +22,8 @@ module Buoys
     end
 
     def url
+      return '' if current? && !config[:link_current]
+
       @_url || ''
     end
 
