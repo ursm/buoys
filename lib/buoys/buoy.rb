@@ -19,6 +19,7 @@ module Buoys
     end
 
     def link(key, *args)
+      options = args.extract_options!
       path = args.shift
       url = path ? context.url_for(path) : path
 
@@ -30,7 +31,7 @@ module Buoys
           I18n.t(key, scope: 'buoys.breadcrumbs')
         end
 
-      links << Buoys::Link.new(text, url, args.extract_options!)
+      links << Buoys::Link.new(text, url, options)
     end
 
     def links
