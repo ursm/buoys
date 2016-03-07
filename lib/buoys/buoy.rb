@@ -23,13 +23,7 @@ module Buoys
       path = args.shift
       url = path ? context.url_for(path) : path
 
-      text =
-        case key
-        when String
-          key
-        when Symbol
-          I18n.t(key, scope: 'buoys.breadcrumbs')
-        end
+      text = I18n.t(key, scope: 'buoys.breadcrumbs', default: key)
 
       links << Buoys::Link.new(text, url, options)
     end

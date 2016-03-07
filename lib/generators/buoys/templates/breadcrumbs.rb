@@ -12,13 +12,13 @@ end
 #   link 'Stories', stories_path
 # end
 
-# If you use symbol as link's first argument, it is used as I18n key.
+# link's first argument, it is used as I18n key and defalt value.
 # The key is searched in the scope of 'buoys.breadcrumbs'.
 #
 # ex)
 # buoy :story do |story|
 #   link :story, story_path(story)
-#   # same as `link I18n.t('buoys.breadcrumbs.story'), story_path(story)``
+#   # same as `link I18n.t(:story, scope: 'buoys.breadcrumbs', default: story), story_path(story)`
 # end
 
 # You can alse override Buoys configuration
