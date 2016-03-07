@@ -1,0 +1,15 @@
+<% if buoys.any? %>
+  <ul>
+    <% buoys.each do |link| %>
+      <li>
+        <%# if `link.current?` is true, link.options includes {class: 'current'}. %>
+        <%= link_to link.url, link.options do %>
+          <span><%= link.text %></span>
+        <% end %>
+        <% if !link.current? %>
+          <span> &gt;</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
