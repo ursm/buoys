@@ -13,6 +13,7 @@ module Buoys
       def buoy(key, &block)
         buoys[key] = block
       end
+      alias_method :crumb, :buoy
 
       def buoys
         @buoys ||= {}
