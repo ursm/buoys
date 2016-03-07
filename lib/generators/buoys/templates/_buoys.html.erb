@@ -1,15 +1,14 @@
 <% if buoys.any? %>
-  <ul>
+  <ol class="breadcrumb">
     <% buoys.each do |link| %>
       <li>
         <%# if `link.current?` is true, link.options includes {class: 'current'}. %>
-        <%= link_to link.url, link.options do %>
+        <% if link.current? %>
           <span><%= link.text %></span>
-        <% end %>
-        <% if !link.current? %>
-          <span> &gt;</span>
+        <% else %>
+          <%= link_to link.text, link.url, link.options %>
         <% end %>
       </li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
