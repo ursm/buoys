@@ -1,0 +1,21 @@
+<% if buoys.any? %>
+  <ul>
+    <% buoys.each do |link| %>
+      <li>
+        <% if link.current? %>
+          <%= link_to link.url, link.options do %>
+            <span><%= link.text %></span>
+          <% end %>
+        <% elsif link.url %>
+          <%= link_to link.url, link.options.deep_merge(class: 'hover') do %>
+            <span><%= link.text %></span>
+          <% end %>
+          <span>&gt;</span>
+        <% else %>
+          <span><%= link.text %></span>
+          <span> &gt;</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
