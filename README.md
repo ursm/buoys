@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/muryoimpl/buoys.svg?branch=master)](https://travis-ci.org/muryoimpl/buoys)
+
 # Buoys
 
 Buoys is a Ruby on Rails breadcrumb plugin like [gretel](https://github.com/lassebunk/gretel).
