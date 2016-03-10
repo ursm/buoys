@@ -5,7 +5,13 @@ rvm:
   - 2.2.4
   - 2.3.0
 
+gemfile:
+  - gemfiles/Gemfile-4.1.x
+  - gemfiles/Gemfile-4.2.x
+  - gemfiles/Gemfile-5.0.x
+
 before_script:
+  - 'bundle install'
   - 'cd test/dummy; rake db:migrate; rake db:test:prepare; cd ../..'
 
 notifications:
