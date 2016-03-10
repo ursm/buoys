@@ -1,5 +1,6 @@
 module Buoys
   module Helper
+    @_buoys_renderer = nil
     # Declare the breadcrumb which want to render in view.
     #
     # <%= buoy :help, true %>

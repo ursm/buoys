@@ -11,6 +11,7 @@ module Buoys
     def initialize(text, url, options)
       @options_for_config, @options = extract_options_and_config(options)
       @text, @_url = text, url
+      @current = false
     end
 
     def mark_as_current!
