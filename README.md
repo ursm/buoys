@@ -103,9 +103,4 @@ Then, You can build and change breadcrumb  `app/views/breadcrumbs/_buoys.html.er
 | :link_current  | whether current buoy(breadcrumb) should be linked to | false |
 | :current_class | CSS class for current link. if you set `nil`, it is not set CSS class | 'active' |
 
-## TODO
-
-- Rails 4.1, 4.2, 5.0 support
-- Ruby 2.1, 2.2, 2.3
-
 Copyright (c) 2016 muryoimpl Released under the MIT license
