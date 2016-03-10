@@ -1,6 +1,5 @@
 module Buoys
   module Helper
-    @_buoys_renderer = nil
     # Declare the breadcrumb which want to render in view.
     #
     # <%= buoy :help, true %>
@@ -21,10 +20,12 @@ module Buoys
     #   <% end %>
     # <% end %>
     def buoys
-      return [] if @_buoys_renderer.nil?
-
-      @_buoys_renderer.render
+      buoys_renderer.render
     end
     alias_method :breadcrumbs, :buoys
+
+    def buoys_renderer
+      @_buoys_renderer ||= Buoys::Renderer.new(self, nil)
+    end
   end
 end
