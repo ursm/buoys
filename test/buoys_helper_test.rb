@@ -32,4 +32,11 @@ class BuoysHelerTest < ActionView::TestCase
 
     assert_dom_equal %{<ul><li><a class="hover" href="http://example.com/books"><span>Books</span></a><span>&gt;</span></li><li><a class="active" href="http://example.com/books/1"><span>show-1</span></a></li></ul>}, html
   end
+
+  test '.buoys (no given key)' do
+    buoys
+    html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
+
+    assert_dom_equal '', html
+  end
 end

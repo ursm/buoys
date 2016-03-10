@@ -20,6 +20,8 @@ module Buoys
     #   <% end %>
     # <% end %>
     def buoys
+      return [] if @_buoys_renderer.nil?
+
       @_buoys_renderer.render
     end
     alias_method :breadcrumbs, :buoys
