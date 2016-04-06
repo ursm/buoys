@@ -2,7 +2,10 @@ module Buoys
   class Renderer
     def initialize(context, key, *args)
       @context, @key, @args = context, key, args
-      Buoys::Loader.load_buoys_files if Buoys::Loader.buoys.keys.empty?
+
+      if Rails.env.development? || Buoys::Loader.buoys.keys.empty?
+        Buoys::Loader.load_buoys_files
+      end
     end
 
     def render
