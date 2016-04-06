@@ -19,4 +19,5 @@ module Buoys
     end
   end
 end
-ActionView::Base.send :include, Buoys::Helper
+
+require 'buoys/railtie'
