@@ -1,14 +1,14 @@
 module Buoys
   class Renderer
     def initialize(context, key, *args)
-      @context, @key, @args = context, key, *args
+      @context, @key, @args = context, key, args
       Buoys::Loader.load_buoys_files if Buoys::Loader.buoys.keys.empty?
     end
 
     def render
       return [] unless @key
 
-      buoy = Buoys::Buoy.new(@context, @key, @args)
+      buoy = Buoys::Buoy.new(@context, @key, *@args)
       build_links(buoy)
     end
 
