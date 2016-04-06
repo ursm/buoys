@@ -96,7 +96,7 @@ Then, You can build and change breadcrumb  `app/views/breadcrumbs/_buoys.html.er
     <% end %>
   </ul>
 <% end %>
-```  
+```
 
 ## Options
 
@@ -104,5 +104,16 @@ Then, You can build and change breadcrumb  `app/views/breadcrumbs/_buoys.html.er
 | -------------- | ----------- | ------- |
 | :link_current  | whether current buoy(breadcrumb) should be linked to | false |
 | :current_class | CSS class for current link. if you set `nil`, it is not set CSS class | 'active' |
+
+
+You can override default configuration like below.
+
+```ruby
+# config/initializers/buoys.rb
+
+Buoys.configure do |config|
+  config.current_class = 'current'
+end
+```
 
 Copyright (c) 2016 muryoimpl Released under the MIT license
