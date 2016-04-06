@@ -1,0 +1,9 @@
+- if buoys.any?
+  %ol.breadcrumb
+    - buoys.each do |link|
+      %li
+        - # if `link.current?` is true, link.options includes {class: 'current'}.
+        - if link.current?
+          %span= link.text
+        - else
+          = link_to link.text, link.url, link.options
