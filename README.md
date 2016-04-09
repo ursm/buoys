@@ -28,8 +28,16 @@ Start by generating configuration and example files.
 ```ruby
 $ bin/rails g buoys:install
   create  config/locale/buoys.en.yml
-  create  app/views/breadcrumbs/_buoys.html.erb
   create  config/buoys/breadcrumbs.rb
+  create  app/views/breadcrumbs/_buoys.html.erb
+```
+
+You can use `--template haml` and `--template slim` options.
+```ruby
+$ bin/rails g buoys:install --template haml
+  create  config/locale/buoys.en.yml
+  create  config/buoys/breadcrumbs.rb
+  create  app/views/breadcrumbs/_buoys.html.haml
 ```
 
 Then, in `config/buoys/breadcrumbs.rb`
