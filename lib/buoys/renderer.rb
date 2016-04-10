@@ -3,9 +3,7 @@ module Buoys
     def initialize(context, key, *args)
       @context, @key, @args = context, key, args
 
-      if Rails.env.development? || Buoys::Loader.buoys.keys.empty?
-        Buoys::Loader.load_buoys_files
-      end
+      Buoys::Loader.load_buoys_files
     end
 
     def render
