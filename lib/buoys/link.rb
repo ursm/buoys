@@ -40,8 +40,8 @@ module Buoys
       CONFIG.merge(options_for_config)
     end
 
-    def extract_options_and_config(_options)
-      options = _options.with_indifferent_access
+    def extract_options_and_config(opts)
+      options = opts.with_indifferent_access
       config = (options.keys & CONFIG.keys).each_with_object({}) {|key, hash|
         hash[key] = options.delete(key)
       }
