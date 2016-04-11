@@ -20,7 +20,7 @@ module Buoys
     def build_links(buoy)
       links = buoy.links.dup
 
-      links.unshift *collect_previous_links(buoy)
+      links.unshift(*collect_previous_links(buoy))
       links.last.mark_as_current!
 
       links
@@ -30,7 +30,7 @@ module Buoys
       links = []
 
       while buoy = buoy.previous
-        links.unshift *buoy.links
+        links.unshift(*buoy.links)
       end
 
       links

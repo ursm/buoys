@@ -16,7 +16,7 @@ module Buoys
 
       @key = key
       @context = context
-      instance_exec *args, &block
+      instance_exec(*args, &block)
     end
 
     def link(key, *args)
