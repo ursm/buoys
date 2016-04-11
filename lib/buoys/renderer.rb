@@ -1,7 +1,9 @@
 module Buoys
   class Renderer
     def initialize(context, key, *args)
-      @context, @key, @args = context, key, args
+      @context = context
+      @key = key
+      @args = args
 
       Buoys::Loader.load_buoys_files
     end

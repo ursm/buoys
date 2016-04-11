@@ -14,7 +14,8 @@ module Buoys
       block = Buoys::Loader.buoys[key]
       raise ArgumentError, "Buoys :#{key} is not found" unless block
 
-      @key, @context = key, context
+      @key = key
+      @context = context
       instance_exec *args, &block
     end
 
