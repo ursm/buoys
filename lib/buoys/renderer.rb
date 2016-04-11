@@ -29,8 +29,10 @@ module Buoys
     def collect_previous_links(buoy)
       links = []
 
-      while buoy = buoy.previous
+      buoy = buoy.previous
+      while buoy
         links.unshift(*buoy.links)
+        buoy = buoy.previous
       end
 
       links
