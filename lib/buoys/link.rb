@@ -21,7 +21,7 @@ module Buoys
     end
 
     def current?
-      !!@current
+      @current
     end
 
     def url
