@@ -19,16 +19,30 @@ module Buoys
         @buoys ||= {}
       end
 
+      def loaded_times
+        @loaded_times ||= []
+      end
+
       def load_buoys_files
+        return unless need_reload?
+
         buoys.clear
+        loaded_times.clear
 
         buoy_files.each do |file|
           instance_eval open(file).read, file
+          loaded_times << File.mtime(file)
         end
       end
 
       def buoy_files
         Dir[*Buoys.buoy_file_paths]
+      end
+
+      def need_reload?
+        return true if buoys.empty?
+
+        Rails.env.development? && loaded_times != buoy_files.map {|f| File.mtime(f) }
       end
     end
   end
