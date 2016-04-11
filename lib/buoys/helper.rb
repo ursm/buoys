@@ -6,7 +6,7 @@ module Buoys
     def buoy(key, *args)
       @_buoys_renderer = Buoys::Renderer.new(self, key, *args)
     end
-    alias_method :breadcrumb, :buoy
+    alias breadcrumb buoy
 
     # <% buoys.tap do |links| %>
     #   <% if links.any? %>
@@ -22,7 +22,7 @@ module Buoys
     def buoys
       buoys_renderer.render
     end
-    alias_method :breadcrumbs, :buoys
+    alias breadcrumbs buoys
 
     def buoys_renderer
       @_buoys_renderer ||= Buoys::Renderer.new(self, nil)

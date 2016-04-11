@@ -36,7 +36,7 @@ module Buoys
     def pre_buoy(key, *args)
       @previous = Buoys::Buoy.new(context, key, args)
     end
-    alias_method :parent, :pre_buoy
+    alias parent pre_buoy
 
     def method_missing(method, *args, &block)
       context.send(method, *args, &block)
