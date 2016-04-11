@@ -16,7 +16,7 @@ module Buoys
     end
 
     def mark_as_current!
-      options.merge!(class: config[:current_class])
+      options[:class] = config[:current_class]
       @current = true
     end
 
