@@ -1,7 +1,9 @@
 module Buoys
   class Renderer
     def initialize(context, key, *args)
-      @context, @key, @args = context, key, args
+      @context = context
+      @key = key
+      @args = args
 
       Buoys::Loader.load_buoys_files
     end
@@ -18,7 +20,7 @@ module Buoys
     def build_links(buoy)
       links = buoy.links.dup
 
-      links.unshift *collect_previous_links(buoy)
+      links.unshift(*collect_previous_links(buoy))
       links.last.mark_as_current!
 
       links
@@ -27,8 +29,10 @@ module Buoys
     def collect_previous_links(buoy)
       links = []
 
-      while buoy = buoy.previous
-        links.unshift *buoy.links
+      buoy = buoy.previous
+      while buoy
+        links.unshift(*buoy.links)
+        buoy = buoy.previous
       end
 
       links

@@ -5,22 +5,23 @@ module Buoys
 
     CONFIG = {
       current_class: (Buoys::Config.current_class || 'active'),
-      link_current: (Buoys::Config.link_current || false),
+      link_current: (Buoys::Config.link_current || false)
     }.with_indifferent_access
 
     def initialize(text, url, options)
       @options_for_config, @options = extract_options_and_config(options)
-      @text, @_url = text, url
+      @text = text
+      @_url = url
       @current = false
     end
 
     def mark_as_current!
-      options.merge!(class: config[:current_class])
+      options[:class] = config[:current_class]
       @current = true
     end
 
     def current?
-      !!@current
+      @current
     end
 
     def url
@@ -39,8 +40,8 @@ module Buoys
       CONFIG.merge(options_for_config)
     end
 
-    def extract_options_and_config(_options)
-      options = _options.with_indifferent_access
+    def extract_options_and_config(opts)
+      options = opts.with_indifferent_access
       config = (options.keys & CONFIG.keys).each_with_object({}) {|key, hash|
         hash[key] = options.delete(key)
       }

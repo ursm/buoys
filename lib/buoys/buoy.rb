@@ -14,8 +14,9 @@ module Buoys
       block = Buoys::Loader.buoys[key]
       raise ArgumentError, "Buoys :#{key} is not found" unless block
 
-      @key, @context = key, context
-      instance_exec *args, &block
+      @key = key
+      @context = context
+      instance_exec(*args, &block)
     end
 
     def link(key, *args)
@@ -35,7 +36,7 @@ module Buoys
     def pre_buoy(key, *args)
       @previous = Buoys::Buoy.new(context, key, args)
     end
-    alias_method :parent, :pre_buoy
+    alias parent pre_buoy
 
     def method_missing(method, *args, &block)
       context.send(method, *args, &block)
