@@ -10,6 +10,11 @@ gemfile:
   - gemfiles/Gemfile-rails4.2.x
   - gemfiles/Gemfile-rails5.0.x
 
+matrix:
+  allow_failures:
+    - rvm: 2.1.10
+      gemfile: gemfiles/Gemfile-rails5.0.x
+
 before_script:
   - 'cd test/dummy; rake db:migrate; rake db:test:prepare; cd ../..'
 
