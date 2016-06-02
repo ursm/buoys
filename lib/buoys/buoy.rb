@@ -34,7 +34,7 @@ module Buoys
     end
 
     def pre_buoy(key, *args)
-      @previous = Buoys::Buoy.new(context, key, args)
+      @previous = Buoys::Buoy.new(context, key, *args)
     end
     alias parent pre_buoy
 

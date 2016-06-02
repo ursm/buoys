@@ -25,3 +25,5 @@ en:
   buoys:
     breadcrumbs:
       account: 'Account'
+      show_user_item: 'show user item'
+      edit_user_item: 'edit user item'

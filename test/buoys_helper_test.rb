@@ -71,8 +71,34 @@ class BuoysHelerTest < ActionView::TestCase
             <span>&gt;</span>
           </li>
           <li>
-            <a class="active" href="http://example.com/books/1/authors/2">
+            <a class="active" href="http://example.com/books/1/authors/2/edit">
               <span>edit-1-2</span>
+            </a>
+          </li>
+        </ul>
+      ).gsub(/[[:space:]]{2,}|\n/, '')
+
+    assert_dom_equal expected_html, html
+  end
+
+  test '.buoy (use polymorphic routes)' do
+    user = User.create(name: 'test user')
+    item = Item.create(name: 'test item')
+
+    breadcrumb :edit_user_item, [user, item]
+    html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
+    expected_html =
+      %(
+        <ul>
+          <li>
+            <a class="hover" href="/users/#{user.id}/items/#{item.id}">
+              <span>show user item</span>
+            </a>
+            <span>&gt;</span>
+          </li>
+          <li>
+            <a class="active" href="/users/#{user.id}/items/#{item.id}/edit">
+              <span>edit user item</span>
             </a>
           </li>
         </ul>
