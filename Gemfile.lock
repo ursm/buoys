@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    buoys (0.3.0)
+    buoys (0.4.0)
       rails (>= 4.1.0)
 
 GEM
@@ -46,7 +46,7 @@ GEM
     ast (2.2.0)
     builder (3.2.2)
     coderay (1.1.1)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     deka_eiwakun (0.2.0)
       rubocop (~> 0.39.0)
     erubis (2.7.0)
