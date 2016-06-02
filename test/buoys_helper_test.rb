@@ -71,7 +71,7 @@ class BuoysHelerTest < ActionView::TestCase
             <span>&gt;</span>
           </li>
           <li>
-            <a class="active" href="http://example.com/books/1/authors/2">
+            <a class="active" href="http://example.com/books/1/authors/2/edit">
               <span>edit-1-2</span>
             </a>
           </li>
