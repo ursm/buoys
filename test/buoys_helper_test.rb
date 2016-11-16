@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 require 'test_helper'
 
 class BuoysHelerTest < ActionView::TestCase
