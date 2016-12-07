@@ -10,4 +10,3 @@ AllCops:
     - '**/*.gemspec'
     - '**/Gemfile'
     - 'test/dummy/**/*'
-
