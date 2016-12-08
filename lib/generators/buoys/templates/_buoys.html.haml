@@ -1,9 +1,12 @@
 - if buoys.any?
-  %ol.breadcrumb
-    - buoys.each do |link|
-      %li
+  %ol.breadcrumb{itemscope: true, itemtype: 'http://schema.org/BreadcrumbList'}
+    - buoys.each.with_index(1) do |link, i|
+      %li{itemprop: 'itemListElement', itemscope: true, itemtype: 'http://schema.org/ListItem'}
         - # if `link.current?` is true, link.options includes {class: 'current'}.
         - if link.current?
-          %span= link.text
+          %span{itemprop: 'name'}= link.text
+          %meta{itemprop: 'position', content: i}
         - else
-          = link_to link.text, link.url, link.options
+          = link_to link.url, link.options.merge(itemprop: :item) do
+            %span{itemprop: 'name'}= link.text
+          %meta{itemprop: 'position', content: i}

@@ -1,0 +1,12 @@
+inherit_gem:
+  deka_eiwakun: "config/rubocop.yml"
+
+AllCops:
+  TargetRubyVersion: 2.3
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - '**/*.gemspec'
+    - '**/Gemfile'
+    - 'test/dummy/**/*'

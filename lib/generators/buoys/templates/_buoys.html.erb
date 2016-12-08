@@ -1,12 +1,16 @@
 <% if buoys.any? %>
-  <ol class="breadcrumb">
-    <% buoys.each do |link| %>
-      <li>
+  <ol itemscope itemtype='http://schema.org/BreadcrumbList' class='breadcrumb'>
+    <% buoys.each.with_index(1) do |link, i| %>
+      <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
         <%# if `link.current?` is true, link.options includes {class: 'current'}. %>
         <% if link.current? %>
-          <span><%= link.text %></span>
+          <span itemprop='name'><%= link.text %></span>
+          <meta itemprop='position' content='<%= i %>' />
         <% else %>
-          <%= link_to link.text, link.url, link.options %>
+          <%= link_to link.text, link.url, link.options.merge(itemprop: :item) do %>
+            <span itemprop='name'><%= link.text %></span>
+          <% end %>
+          <meta itemprop='position' content='<%= i %>' />
         <% end %>
       </li>
     <% end %>
