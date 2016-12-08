@@ -1,7 +1,7 @@
 - if buoys.any?
-  ol.breadcrumb itemscope=true itemtype="http://schema.org/BreadcrumbList"
+  ol.breadcrumb itemscope=true itemtype='http://schema.org/BreadcrumbList'
     - buoys.each.with_index(1) do |link, i|
-      li itemprop="itemListElement" itemscope=true itemtype="http://schema.org/ListItem"
+      li itemprop='itemListElement' itemscope=true itemtype='http://schema.org/ListItem'
         - # if `link.current?` is true, link.options includes {class: 'current'}.
         - if link.current?
           span itemprop='name'

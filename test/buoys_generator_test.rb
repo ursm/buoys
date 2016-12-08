@@ -14,10 +14,10 @@ class BuoysGeneratorTest < Rails::Generators::TestCase
     run_generator
 
     assert_file File.expand_path('./app/views/breadcrumbs/_buoys.html.erb', dest_root) do |content|
-      assert_match %r|itemscope itemtype="http://schema.org/BreadcrumbList"|, content
-      assert_match %r|<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">|, content
-      assert_match %r|<span itemprop="name">|, content
-      assert_match %r|<meta itemprop="position" content="<%= i %>" />|, content
+      assert_match %r|itemscope itemtype='http://schema.org/BreadcrumbList'|, content
+      assert_match %r|<li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>|, content
+      assert_match %r|<span itemprop='name'>|, content
+      assert_match %r|<meta itemprop='position' content='<%= i %>' />|, content
     end
     assert_file File.expand_path('./config/buoys/breadcrumbs.rb', dest_root)
     assert_file File.expand_path('./config/locales/buoys.en.yml', dest_root)
@@ -27,8 +27,8 @@ class BuoysGeneratorTest < Rails::Generators::TestCase
     run_generator %w(--template haml)
 
     assert_file File.expand_path('./app/views/breadcrumbs/_buoys.html.haml', dest_root) do |content|
-      assert_match %r|%ol.breadcrumb{itemscope: true, itemtype: "http://schema.org/BreadcrumbList"}|, content
-      assert_match %r|%li{itemprop: "itemListElement", itemscope: true, itemtype: "http://schema.org/ListItem"}|, content
+      assert_match %r|%ol.breadcrumb{itemscope: true, itemtype: 'http://schema.org/BreadcrumbList'}|, content
+      assert_match %r|%li{itemprop: 'itemListElement', itemscope: true, itemtype: 'http://schema.org/ListItem'}|, content
       assert_match %r|%span{itemprop: 'name'}=|, content
       assert_match %r|%meta{itemprop: 'position', content: i}|, content
     end
@@ -40,8 +40,8 @@ class BuoysGeneratorTest < Rails::Generators::TestCase
     run_generator %w(--template slim)
 
     assert_file File.expand_path('./app/views/breadcrumbs/_buoys.html.slim', dest_root) do |content|
-      assert_match %r|ol.breadcrumb itemscope=true itemtype="http://schema.org/BreadcrumbList"|, content
-      assert_match %r|li itemprop="itemListElement" itemscope=true itemtype="http://schema.org/ListItem"|, content
+      assert_match %r|ol.breadcrumb itemscope=true itemtype='http://schema.org/BreadcrumbList'|, content
+      assert_match %r|li itemprop='itemListElement' itemscope=true itemtype='http://schema.org/ListItem'|, content
       assert_match %r|span itemprop='name'|, content
       assert_match %r|meta itemprop='position' content=i|, content
     end
