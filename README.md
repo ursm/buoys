@@ -67,7 +67,7 @@ buoy :story_tasks do |story|
   pre_buoy :story, story, {link_current: true}
 end
 
-# You can use 'pre_buoy' as parent. 'parent' is the alias of re_buoy`
+# You can use 'pre_buoy' as parent. 'parent' is the alias of pre_buoy`.
 # ex)
 buoy :story_tasks do |story|
   link :story_tasks, story_tasks_path
