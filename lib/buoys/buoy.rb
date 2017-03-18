@@ -22,7 +22,7 @@ module Buoys
     def link(key, *args)
       options = args.extract_options!
       path = args.shift
-      url = path ? context.url_for(path) : path
+      url = path ? context.url_for(path) : nil
 
       text = I18n.t(key, scope: 'buoys.breadcrumbs', default: key)
 
