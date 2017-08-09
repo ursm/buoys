@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 buoy :account do
   link :account, 'http://example.com/account'
 end

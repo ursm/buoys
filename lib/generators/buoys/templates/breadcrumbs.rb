@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 buoy :example do
   link :example, 'http://localhost:3000'
 end

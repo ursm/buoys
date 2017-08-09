@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 buoy :about do
   link 'about', about_path
 end

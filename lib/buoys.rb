@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'buoys/version'
 require 'buoys/config'
 require 'buoys/loader'
