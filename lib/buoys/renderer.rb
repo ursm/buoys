@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Buoys
   class Renderer
     def initialize(context, key, *args)

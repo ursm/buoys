@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Buoys
   module Helper
     # Declare the breadcrumb which want to render in view.

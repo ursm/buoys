@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Buoys
   class Link
     attr_accessor :text, :options, :options_for_config

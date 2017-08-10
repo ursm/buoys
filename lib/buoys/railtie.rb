@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Buoys
   class Railtie < ::Rails::Railtie
     initializer 'buoys' do
