@@ -12,7 +12,7 @@ class BuoysHelerTest < ActionView::TestCase
     buoy :account
     html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
 
-    assert_dom_equal %(<ul><li><a class="active" href=""><span>Account</span></a></li></ul>), html
+    assert_dom_equal %(<ul><li><a class="active" href=""><span>Account</span></a></li></ul>).dup, html
   end
 
   test '.buoy (not only active)' do
@@ -137,6 +137,6 @@ class BuoysHelerTest < ActionView::TestCase
     buoys
     html = render('breadcrumbs/buoys').gsub(/[[:space:]]{2,}|\n/, '')
 
-    assert_dom_equal '', html
+    assert_dom_equal ''.dup, html
   end
 end
