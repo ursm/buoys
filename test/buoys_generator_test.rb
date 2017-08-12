@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/RegexpLiteral,Style/PercentLiteralDelimiters
+# rubocop:disable Style/RegexpLiteral, Metrics/LineLength
 require 'test_helper'
 require 'generators/buoys/install_generator'
 

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
 require 'test_helper'
 
 class BuoysHelerTest < ActionView::TestCase
