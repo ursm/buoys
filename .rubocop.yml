@@ -1,6 +1,3 @@
-inherit_gem:
-  deka_eiwakun: "config/rubocop.yml"
-
 AllCops:
   TargetRubyVersion: 2.2
 
@@ -10,3 +7,58 @@ AllCops:
     - '**/*.gemspec'
     - '**/Gemfile'
     - 'test/dummy/**/*'
+
+Bundler/DuplicatedGem:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SpaceBeforeBlockParameters: false
+  EnforcedStyleForEmptyBraces: no_space
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 30
+  ExcludedMethods: context, describe, specify, test, let, let!
+
+Metrics/BlockNesting:
+  Max: 5
+
+Metrics/ClassLength:
+  Max: 120
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ModuleLength:
+  Max: 120
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: '()'
+    '%r': '||'
+    '%i': '()'
+    '%w': '()'
+
+Style/Documentation:
+  Enabled: false
+
+Style/MethodMissing:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
