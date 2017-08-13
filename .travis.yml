@@ -21,5 +21,9 @@ matrix:
 before_script:
   - 'cd test/dummy; rake db:migrate; rake db:test:prepare; cd ../..'
 
+script:
+  - bundle exec rake test
+  - bundle exec rubocop
+
 notifications:
   email: false
