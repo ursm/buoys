@@ -27,7 +27,7 @@ module Buoys
     alias breadcrumbs buoys
 
     def buoys_renderer
-      @_buoys_renderer ||= Buoys::Renderer.new(self, nil)
+      @_buoys_renderer ||= Buoys::Renderer.new(self, nil) # rubocop:disable Naming/MemoizedInstanceVariableName
     end
   end
 end

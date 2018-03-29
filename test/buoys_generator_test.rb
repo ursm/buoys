@@ -25,7 +25,6 @@ class BuoysGeneratorTest < Rails::Generators::TestCase
     assert_file File.expand_path('./config/locales/buoys.en.yml', dest_root)
   end
 
-  # rubocop:disable Style/FormatStringToken
   test 'option --template haml' do
     run_generator %w(--template haml)
 
@@ -38,7 +37,6 @@ class BuoysGeneratorTest < Rails::Generators::TestCase
     assert_file File.expand_path('./config/buoys/breadcrumbs.rb', dest_root)
     assert_file File.expand_path('./config/locales/buoys.en.yml', dest_root)
   end
-  # rubocop:enable Style/FormatStringToken
 
   test 'option --template slim' do
     run_generator %w(--template slim)
