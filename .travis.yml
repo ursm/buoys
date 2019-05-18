@@ -1,10 +1,9 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.2.10
-  - 2.3.8
-  - 2.4.5
-  - 2.5.3
+  - 2.4.6
+  - 2.5.5
+  - 2.6.3
   - ruby-head
 
 gemfile:
@@ -15,10 +14,16 @@ gemfile:
 
 matrix:
   allow_failures:
-    - rvm: 2.4.4
+    - rvm: 2.5.5
+      gemfile: gemfiles/Gemfile-rails4.2.x
+    - rvm: 2.6.3
       gemfile: gemfiles/Gemfile-rails4.2.x
     - rvm: ruby-head
       gemfile: gemfiles/Gemfile-rails4.2.x
+
+before_install:
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2'
 
 before_script:
   - 'gem install rake --no-document'
